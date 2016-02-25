@@ -1,13 +1,14 @@
 class Node {
-    constructor(data, next, prev) {
-        this.data = data;
+    constructor(data, determination, prev, next) {
+        this.data = determination(data);
         this.next = next;
-        this.prev = null;
+        this.prev = prev;
+        this.determination = determination;
     }
     
     add(data) {
         if(this.next == null) {
-            this.next = new Node(data);
+            this.next = new Node(data, this.determination, this);
         } else {
             this.next.add(data);
         }
@@ -27,5 +28,9 @@ class Node {
         } else {
             this.prev.getFirst();
         }
+    }
+    
+    getData() {
+        return this.data;
     }
 }

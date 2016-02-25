@@ -5,7 +5,7 @@ class MessageParser {
         
     }
     
-    getNode(msg) {
+    getLastNode(msg, callback) {
         var tokenArray = msg.split(' ');
         
         // caching
@@ -15,12 +15,15 @@ class MessageParser {
             return null;
         }
         
-        var first = new Node(tokenArray[0]);
+        var first = new Node(tokenArray[0], function(data) {
+            // TODO: module determination
+            return data;
+        });
         
         for(var i = 1;i < len;i++) {
             first.add(tokenArray[i]);
         }
         
-        return first;
+        callback(first.getLast());
     }
 }

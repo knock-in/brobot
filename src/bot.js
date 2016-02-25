@@ -1,4 +1,5 @@
-const telegramBotApi = require('node-telegram-bot-api');
+var telegramBotApi = require('node-telegram-bot-api');
+var MessageParser = require("msgparser.js");
 
 class Brobot {
     constructor(token, host, port, start) {
@@ -15,18 +16,27 @@ class Brobot {
         this.bot = new telegramBotApi(this.token, this.options);
         
         if(start) {
-            start();
+            //start();
+            test();
         }
     }
     
     start() {
-        
         this.telegramBot.on('message', function(msg) {
-           this.messageParser.getNode(msg, function(node) {
-              node.execute(function(response) {
+           this.messageParser.getLastNode(msg, function(node) {
+              node.getData().execute(function(response) {
                   // TODO: Send response back to user
-              })
+              });
            });
+        });
+    }
+    
+    test() {
+        this.messageParser.getLastNode("Hello World this is a test message", function(node) {
+            node.getData().execute(function(response) {
+                // TODO: Send response back to user
+                console.log(response);
+            });
         });
     }
 }
