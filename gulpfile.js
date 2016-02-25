@@ -7,3 +7,7 @@ gulp.task('default', function() {
     .pipe(babel())
     .pipe(gulp.dest("dist"));
 });
+
+gulp.task('run', function() {
+  // TODO: run dist/bot.js
+});

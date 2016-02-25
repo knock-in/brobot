@@ -24,5 +24,8 @@
   "homepage": "https://github.com/knock-in/brobot#readme",
   "devDependencies": {
     "gulp-babel": "^6.1.2"
+  },
+  "dependencies": {
+    "node-telegram-bot-api": "^0.20.1"
   }
 }
