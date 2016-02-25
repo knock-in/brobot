@@ -1,0 +1,28 @@
+{
+  "name": "brobot",
+  "version": "0.0.1",
+  "description": "module-based telegram bot",
+  "main": "dist/bot.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/knock-in/brobot.git"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "module",
+    "based"
+  ],
+  "author": "knock-in",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/knock-in/brobot/issues"
+  },
+  "homepage": "https://github.com/knock-in/brobot#readme",
+  "devDependencies": {
+    "gulp-babel": "^6.1.2"
+  }
+}
