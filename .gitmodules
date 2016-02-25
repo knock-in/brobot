@@ -1,0 +1,3 @@
+[submodule "node-telegram-bot-api"]
+	path = node-telegram-bot-api
+	url = https://github.com/knock-in/node-telegram-bot-api.git
