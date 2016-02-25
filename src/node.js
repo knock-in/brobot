@@ -1,6 +1,6 @@
 class Node {
     constructor(data, determination, prev, next) {
-        this.data = determination(data);
+        this.data = determination(data, this);
         this.next = next;
         this.prev = prev;
         this.determination = determination;
@@ -14,19 +14,19 @@ class Node {
         }
     }
     
-    getLast() {
+    getLast(callback) {
         if(this.next == null) {
-            return this;
+            callback(this);
         } else {
-            this.next.getLast();
+            this.next.getLast(callback);
         }
     }
     
-    getFirst() {
+    getFirst(callback) {
         if(this.prev == null) {
-            return this;
+            callback(this);
         } else {
-            this.prev.getFirst();
+            this.prev.getFirst(callback);
         }
     }
     
@@ -34,3 +34,5 @@ class Node {
         return this.data;
     }
 }
+
+module.exports = Node;

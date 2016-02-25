@@ -1,4 +1,5 @@
-var Node = require("node.js");
+var Node = require("./node.js");
+var BaseModule = require("./modules/basemodule.js");
 
 class MessageParser {
     constructor() {
@@ -15,15 +16,17 @@ class MessageParser {
             return null;
         }
         
-        var first = new Node(tokenArray[0], function(data) {
+        var first = new Node(tokenArray[0], function(data, node) {
             // TODO: module determination
-            return data;
+            return new BaseModule(data, node);
         });
         
         for(var i = 1;i < len;i++) {
             first.add(tokenArray[i]);
         }
         
-        callback(first.getLast());
+        first.getLast(callback);
     }
 }
+
+module.exports = MessageParser;
