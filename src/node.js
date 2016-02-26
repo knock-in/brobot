@@ -1,14 +1,15 @@
 class Node {
-    constructor(data, determination, prev, next) {
-        this.data = determination(data, this);
+    constructor(data, mapper, mapFunc, prev, next) {
+        mapFunc(data, this, mapper);
+        this.mapper = mapper;
         this.next = next;
         this.prev = prev;
-        this.determination = determination;
+        this.determination = mapFunc;
     }
     
     add(data) {
         if(this.next == null) {
-            this.next = new Node(data, this.determination, this);
+            this.next = new Node(data, this.mapper, this.mapFunc, this);
         } else {
             this.next.add(data);
         }

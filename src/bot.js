@@ -30,8 +30,3 @@ class Brobot {
         });
     }
 }
-
-var brobot = new Brobot('148601593:AAG4fs-T3bDtTny4qk7No-A9nkwZqXjJGPw', process.env.IP, process.env.PORT);
-brobot.start(function(_args) {
-    console.log(_args);
-});

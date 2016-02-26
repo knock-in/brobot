@@ -1,9 +1,10 @@
 var Node = require("./node.js");
+var ModuleMapper = require("./modules");
 var BaseModule = require("./modules/basemodule.js");
 
 class MessageParser {
     constructor() {
-
+        this.moduleMapper = new ModuleMapper();
     }
     
     getLastNode(msg, callback) {
@@ -22,9 +23,10 @@ class MessageParser {
             callback(null);
         }
         
-        var first = new Node(tokenArray[0], function(token, node) {
-            // TODO: module determination
-            return new BaseModule(token, node);
+        var first = new Node(tokenArray[0], this.moduleMapper, function(token, node, mapper) {
+            // TODO: module mapping
+            var Module = mapper.map(token);
+            node.data =  new Module(token, node);
         });
         
         for(var i = 1;i < len;i++) {

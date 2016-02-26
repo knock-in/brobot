@@ -5,12 +5,8 @@ class BaseModule {
         this._args = _args || [];
     }
     
-    isNumber(token) {
-        return !Number.isNaN(Number.parseFloat(token));
-    }
-    
-    isString(token) {
-        return !this.isNumber();
+    static getTrigger() {
+        return "";
     }
     
     execute(callback, _args) {
