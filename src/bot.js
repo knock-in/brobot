@@ -30,3 +30,5 @@ class Brobot {
         });
     }
 }
+
+module.exports = Brobot;

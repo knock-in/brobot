@@ -4,7 +4,7 @@ class Node {
         this.mapper = mapper;
         this.next = next;
         this.prev = prev;
-        this.determination = mapFunc;
+        this.mapFunc = mapFunc;
     }
     
     add(data) {

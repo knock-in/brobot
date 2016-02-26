@@ -10,11 +10,9 @@ class RevModule extends BaseModule {
     }
     
     work(_args) {
-        this._args.push(this.token);
         for(var i = _args.length-1;i >= 0;i--) {
             this._args.push(_args[i]);
         }
-        console.log(this._args);
     }
 }
 
