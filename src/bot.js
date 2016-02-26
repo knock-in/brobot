@@ -2,31 +2,36 @@ var telegramBotApi = require('node-telegram-bot-api');
 var MessageParser = require("./msgparser.js");
 
 class Brobot {
-    constructor(token, host, port, start) {
+    constructor(token, host, port) {
         this.token = token;
         this.messageParser = new MessageParser();
         
         this.options = {
-            webhook: {
+            webHook: {
                 host: host,
                 port: port
             }
         }
         
         this.bot = new telegramBotApi(this.token, this.options);
-        
-        if(start) {
-            start();
-        }
+        this.bot.messageParser = this.messageParser;
     }
     
-    start() {
-        this.telegramBot.on('message', function(msg) {
-           this.messageParser.getLastNode(msg, function(node) {
-              node.getData().execute(function(response) {
-                  // TODO: Send response back to user
-              });
-           });
+    start(callback) {
+        this.bot.on('message', function(msg) {
+            console.log(msg.text);
+            this.messageParser.getLastNode(msg.text, function(node) {
+                if(node == null) {
+                    return;
+                }
+               
+                node.getData().execute(callback);
+            });
         });
     }
 }
+
+var brobot = new Brobot('148601593:AAG4fs-T3bDtTny4qk7No-A9nkwZqXjJGPw', process.env.IP, process.env.PORT);
+brobot.start(function(_args) {
+    console.log(_args);
+});
