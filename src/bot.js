@@ -24,7 +24,7 @@ class Brobot {
                 if(node == null) {
                     return;
                 }
-               
+                
                 node.getData().execute(callback);
             });
         });
