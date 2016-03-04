@@ -10,23 +10,23 @@ class MessageParser {
     getLastNode(msg, callback) {
         
         // remove multiple whitespace
-        while(msg.indexOf("  ") != -1) {
-            msg = msg.replace("  ", " ");
+        var text = msg.text;
+        while(text.indexOf("  ") != -1) {
+            text = text.replace("  ", " ");
         }
         
-        var tokenArray = msg.split(' ');
+        var tokenArray = text.split(' ');
         
-        // caching
         var len = tokenArray.length;
         
         if(len < 1) {
             callback(null);
         }
         
-        var first = new Node(tokenArray[0], this.moduleMapper, function(token, node, mapper) {
+        var first = new Node(msg, tokenArray[0], null, null, (msg, token, node) => {
             // TODO: module mapping
-            var Module = mapper.map(token);
-            node.data =  new Module(token, node);
+            var Module = this.moduleMapper.map(token);
+            node.data = new Module(token, node, msg);
         });
         
         for(var i = 1;i < len;i++) {

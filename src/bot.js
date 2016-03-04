@@ -1,10 +1,12 @@
 var telegramBotApi = require('node-telegram-bot-api');
 var MessageParser = require("./msgparser.js");
+var StopWatch = require("timer-stopwatch");
 
 class Brobot {
     constructor(token, host, port) {
         this.token = token;
         this.messageParser = new MessageParser();
+        this.timer = new StopWatch();
         
         this.options = {
             webHook: {
@@ -18,10 +20,11 @@ class Brobot {
     }
     
     start(callback) {
-        this.bot.on('message', function(msg) {
+        this.bot.on('message', (msg) => {
             console.log(msg.text);
-            this.messageParser.getLastNode(msg.text, function(node) {
+            this.messageParser.getLastNode(msg, function(node) {
                 if(node == null) {
+                    console.log('No nodes to process');
                     return;
                 }
                 

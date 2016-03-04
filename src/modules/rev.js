@@ -1,18 +1,19 @@
 var BaseModule = require("./basemodule.js");
 
 class RevModule extends BaseModule {
-    constructor(data, node, _args) {
-        super(data, node, _args);
+    constructor(data, node, msg, _args) {
+        super(data, node, msg, _args);
     }
     
-    static getTrigger() {
-        return "rev";
+    static getOptions() {
+        return {
+            trigger: 'rev',
+            minArgs: -1
+        };
     }
     
     work(_args) {
-        for(var i = _args.length-1;i >= 0;i--) {
-            this._args.push(_args[i]);
-        }
+        return _args.reverse();
     }
 }
 
