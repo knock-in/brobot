@@ -24,7 +24,6 @@ class MessageParser {
         }
         
         var first = new Node(msg, tokenArray[0], null, null, (msg, token, node) => {
-            // TODO: module mapping
             var Module = this.moduleMapper.map(token);
             node.data = new Module(token, node, msg);
         });
