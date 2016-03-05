@@ -5,7 +5,6 @@ class RevModule extends BaseModule {
         super(data, node, msg, _args);
     }
     
-    
     static getOptions() {
         return {
             trigger: '+',

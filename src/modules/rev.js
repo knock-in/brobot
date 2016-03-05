@@ -13,7 +13,7 @@ class RevModule extends BaseModule {
     }
     
     work(_args) {
-        return _args.reverse();
+        this._args = _args.reverse();
     }
 }
 
