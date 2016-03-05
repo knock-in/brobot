@@ -8,7 +8,7 @@ class RevModule extends BaseModule {
     static getOptions() {
         return {
             trigger: 'rev',
-            minArgs: -1
+            minArgs: 0
         };
     }
     

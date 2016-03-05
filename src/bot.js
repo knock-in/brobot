@@ -28,7 +28,8 @@ class Brobot {
                     return;
                 }
                 
-                node.getData().execute(callback);
+                // Possibility to pass other arguments with first parameter
+                node.getData().execute([], callback);
             });
         });
     }
