@@ -13,12 +13,10 @@ class RevModule extends BaseModule {
     }
     
     work(_args) {
-        var value1 = Number(_args[0]);
-        var value2 = Number(_args[1]);
         var i = 0;
         
-        if(!isNaN(value1) && !isNaN(value2)) {
-            this._args.push(value1 + value2);
+        if(this.isNumber(_args[0]) && this.isNumber(_args[1])) {
+            this._args.push(Number(_args[0]) + Number(_args[1]));
             i = 2;
         }
         

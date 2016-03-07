@@ -20,7 +20,9 @@ class MessageParser {
         var len = tokenArray.length;
         
         if(len < 1) {
+            // No tokens to process
             callback(null);
+            return;
         }
         
         var first = new Node(msg, tokenArray[0], null, null, (msg, token, node) => {

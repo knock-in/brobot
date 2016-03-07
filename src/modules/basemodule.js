@@ -5,13 +5,20 @@ class BaseModule {
         this._args = _args || [];
         this.msg = msg;
     }
-    
-    // TODO: Module options: trigger: '+', minArgs: [ n ] -> n == -1 == all arguments, 
+
     static getOptions() {
         return {
             trigger: '',
             minArgs: 0
         };
+    }
+    
+    isNumber(value) {
+        return !isNaN(Number(value));
+    }
+    
+    isString(value) {
+        return !this.isNumber(value);
     }
     
     execute(_args, callback) {
