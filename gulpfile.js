@@ -15,3 +15,8 @@ gulp.task('default', function() {
         .pipe(babel())
         .pipe(gulp.dest(DEST));
 });
+
+gulp.task('test', function() {
+   gulp.src('spec/*')
+        .pipe(jasmine());
+});
