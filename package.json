@@ -2,9 +2,9 @@
   "name": "brobot",
   "version": "0.0.1",
   "description": "module-based telegram bot",
-  "main": "dist/bot.js",
+  "main": "dist/app.js",
   "scripts": {
-    "test": "gulp test"
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",
