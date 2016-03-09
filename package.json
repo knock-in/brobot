@@ -4,7 +4,7 @@
   "description": "module-based telegram bot",
   "main": "dist/bot.js",
   "scripts": {
-    "test": "jasmine"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/knock-in/brobot#readme",
   "devDependencies": {
+    "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-changed": "^1.3.0",
     "gulp-util": "^3.0.7",

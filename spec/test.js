@@ -8,7 +8,7 @@ var MessageParser = require("../dist/msgparser.js");
 var msgparser = new MessageParser();
 
 
-describe("Message Parser test suite", function() {
+describe("Message parser test suite", function() {
     var msg = {};
     
     msg.text = "bro, are you okay?";
@@ -18,16 +18,15 @@ describe("Message Parser test suite", function() {
         lastNode = node;
     });
     
-    it("Last Node is not null", function() {
+    it("Last node is not null", function() {
         expect(lastNode).not.toBeNull();
     });
     
-    it("Data of Last Node is not null", function() {
+    it("Last node data is not null", function() {
         expect(lastNode.getData()).not.toBeNull();
     });
     
-    it("Node Token is `okay?`", function() {
+    it("Last node token is `okay?`", function() {
         expect(lastNode.getData().token).toMatch('okay?');  
     });
-   
 });

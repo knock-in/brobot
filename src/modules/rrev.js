@@ -13,7 +13,6 @@ class RRevModule extends BaseModule {
     }
     
     work(_args) {
-
         for(var i = 0;i < _args.length;i++) {
             this._args.push(_args[i].split('').reverse().join(''));
         }

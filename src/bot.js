@@ -1,12 +1,10 @@
 var telegramBotApi = require('node-telegram-bot-api');
 var MessageParser = require("./msgparser.js");
-var StopWatch = require("timer-stopwatch");
 
 class Brobot {
     constructor(token, host, port) {
         this.token = token;
         this.messageParser = new MessageParser();
-        this.timer = new StopWatch();
         
         this.options = {
             webHook: {
