@@ -1,6 +1,8 @@
-var jasmineReporter = require("./reporter.js");
+var SpecReporter = require("jasmine-spec-reporter");
 
-jasmine.getEnv().addReporter(jasmineReporter);
+jasmine.getEnv().addReporter(new SpecReporter({
+  displaySpecDuration: true   // display each spec duration
+}));
 
 var MessageParser = require("../dist/msgparser.js");
 var msgparser = new MessageParser();
