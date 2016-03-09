@@ -7,6 +7,12 @@ var gutil = require('gulp-util');
 var SRC = 'src/**/*.js';
 var DEST = 'dist';
 
+gulp.task('buildAll', function() {
+    return gulp.src(SRC)
+        .pipe(babel())
+        .pipe(gulp.dest(DEST));
+});
+
 gulp.task('default', function() {
     return gulp.src(SRC)
         .pipe(watch(SRC).on('change', function(path){
@@ -16,7 +22,7 @@ gulp.task('default', function() {
         .pipe(gulp.dest(DEST));
 });
 
-gulp.task('test', function() {
+gulp.task('test', ['buildAll'], function() {
    gulp.src('spec/*')
         .pipe(jasmine());
 });
