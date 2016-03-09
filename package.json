@@ -4,7 +4,7 @@
   "description": "module-based telegram bot",
   "main": "dist/app.js",
   "scripts": {
-    "test": "jasmine"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
