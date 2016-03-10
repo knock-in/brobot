@@ -16,13 +16,13 @@
         "copyright"             :  "Copyright (c) knock-in",
         "includeDate"           : "true",
         "navType"               : "vertical",
-        "theme"                 : "united",
+        "theme"                 : "sandstone",
         "linenums"              : "true",
         "collapseSymbols"       : "true",
         "inverseNav"            : "true",
         "outputSourceFiles"     : "true" ,
         "outputSourcePath"      : "true",
-        "dateFormat"            : "dddd, MMMM Do YYYY, h:mm:ss a",
+        "dateFormat"            : "DD.MM.YYYY",
         "syntaxTheme"           : "default",
         "sort"                  : "true"
     }
