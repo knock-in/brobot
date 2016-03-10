@@ -1,0 +1,29 @@
+{
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": ["jsdoc","closure"]
+    },
+    "source": {
+        "includePattern": ".+\\.js(doc)?$",
+        "excludePattern": "node_modules\\/(.*)"
+    },
+    "plugins": [],
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false,
+        "systemName"            : "systemName",
+        "footer"                : "footer",
+        "copyright"             :  "copyright",
+        "includeDate"           : "true",
+        "navType"               : "vertical",
+        "theme"                 : "cerulean",
+        "linenums"              : "true",
+        "collapseSymbols"       : "true",
+        "inverseNav"            : "true",
+        "outputSourceFiles"     : "true" ,
+        "outputSourcePath"      : "true",
+        "dateFormat"            : "dddd, MMMM Do YYYY, h:mm:ss a",
+        "syntaxTheme"           : "default",
+        "sort"                  : "true"
+    }
+}
