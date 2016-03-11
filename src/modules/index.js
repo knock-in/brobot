@@ -12,7 +12,11 @@ class ModuleMapper{
             // Dont use index and basemodule as module
             if(dirs[i] != 'index.js' && dirs[i] != 'basemodule.js') { 
                 var module = require('./' + dirs[i]);
-                this.moduleMap.set(module.getOptions().trigger.toLowerCase(), module);
+                
+                // Only add module if 'active' flag is set to true and trigger not already in modulemap
+                if(module.getOptions().active == true && this.moduleMap.get(module.getOptions().trigger) == null) {
+                    this.moduleMap.set(module.getOptions().trigger.toLowerCase(), module);
+                }
             }
         }
     }

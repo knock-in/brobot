@@ -9,7 +9,7 @@ class RevModule extends BaseModule {
         return {
             trigger: '+',
             minArgs: 2,
-            active: true
+            active: false
         };
     }
     
