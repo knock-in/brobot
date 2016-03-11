@@ -26,3 +26,6 @@ gulp.task('test', ['buildAll'], function() {
    gulp.src('spec/*')
         .pipe(jasmine());
 });
+
+// TODO: Gulp task for documentation: jsdoc -c conf.json -d docs -t ./node_modules/ink-docstrap/template -R README.md -r .
+// TODO: Gulp task to push documentation to gh-pages branch: git subtree push --prefix docs origin gh-pages
