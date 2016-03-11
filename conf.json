@@ -13,7 +13,7 @@
         "monospaceLinks": false,
         "systemName"            : "Brobot",
         "footer"                : " ",
-        "copyright"             :  "Copyright (c) knock-in",
+        "copyright"             :  "",
         "includeDate"           : "true",
         "navType"               : "vertical",
         "theme"                 : "sandstone",

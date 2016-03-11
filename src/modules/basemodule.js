@@ -9,7 +9,8 @@ class BaseModule {
     static getOptions() {
         return {
             trigger: '',
-            minArgs: 0
+            minArgs: 0,
+            active: true
         };
     }
     
