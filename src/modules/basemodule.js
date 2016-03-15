@@ -37,7 +37,12 @@ class BaseModule {
             // Not enough arguments for this module so just pass them all to the next module, which meets the requirements hopefully
             console.log(`Not enough arguments, got: ${_args.length} but need ${minArgs}`);
             console.log(_args);
-            this._args = _args;
+            
+            this._args.push(this.token);
+            
+            for(var i = 0;i < _args.length;i++) {
+                this._args.push(_args[i]);
+            }
         }
         
         // Pass resulted arguments of this module to the next

@@ -34,6 +34,7 @@
     "jasmine-spec-reporter": "^2.4.0"
   },
   "dependencies": {
+    "morse": "^0.1.0",
     "node-telegram-bot-api": "^0.20.1"
   }
 }
