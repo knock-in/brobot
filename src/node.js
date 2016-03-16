@@ -7,11 +7,19 @@ class Node {
         this.msg = msg;
     }
     
-    add(data) {
+    addLast(data) {
         if(this.next == null) {
             this.next = new Node(this.msg, data, this, null, this.callback);
         } else {
-            this.next.add(data);
+            this.next.addLast(data);
+        }
+    }
+    
+    addFirst(data) {
+        if(this.prev == null) {
+            this.prev = new Node(this.msg, data, null, this, this.callback);
+        } else {
+            this.prev.addFirst(data);
         }
     }
     

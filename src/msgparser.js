@@ -31,7 +31,7 @@ class MessageParser {
         });
         
         for(var i = 1;i < len;i++) {
-            first.add(tokenArray[i]);
+            first.addLast(tokenArray[i]);
         }
         
         first.getLast(callback);

@@ -15,13 +15,13 @@ class MorseModule extends BaseModule {
     }
     
     work(_args) {
-        if(_args[0] == 'e' || _args[0] == 'E') {
+        if(_args[0].toLowerCase() == 'e') {
             // Encode
             for(var i = 1;i < _args.length;i++) {
                 this._args.push(morse.encode(_args[i]));
                 
             }
-        } else if(_args[0] == 'd' || _args[0] == 'D') {
+        } else if(_args[0].toLowerCase() == 'd') {
             // Decode
              for(var i = 1;i < _args.length;i++) {
                 this._args.push(morse.decode(_args[i]));
