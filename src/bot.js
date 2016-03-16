@@ -37,6 +37,8 @@ class Brobot {
                     return;
                 }
                 
+                // Last instance before user gets response
+                node.addFirst('bro');
                 // Possibility to pass other arguments with first parameter
                 node.getData().execute([], callback);
             });

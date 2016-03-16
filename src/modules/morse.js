@@ -9,7 +9,7 @@ class MorseModule extends BaseModule {
     static getOptions() {
         return {
             trigger: 'morse',
-            minArgs: 1,
+            minArgs: 2,
             active: true
         };
     }
