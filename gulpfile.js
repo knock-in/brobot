@@ -48,3 +48,7 @@ gulp.task('test', ['buildSrc'], function() {
    return gulp.src('spec/*')
         .pipe(jasmine());
 });
+
+gulp.task('lint', function() {
+    
+});
