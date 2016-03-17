@@ -2,34 +2,18 @@ var telegramBotApi = require('node-telegram-bot-api');
 var MessageParser = require("./msgparser.js");
 
 /** Brobot class */
-class Brobot {
+class Brobot extends telegramBotApi{
     /**
      * Creates a new instance of class Brobot.
      * @param {string} token - AppToken for your telegram bot. If you dont have one, talk to botfather.
      * @param {string} host - Host which the telegram api listens for new messages.
-     * @param {number} port - Port which the telegram api listens for new messages.
+     * @param {messageCallback} callback - The callback that for each message.
      */
-    constructor(token, host, port) {
-        this.token = token;
+    constructor(token, options, callback) {
+        super(token, options);
         this.messageParser = new MessageParser();
         
-        this.options = {
-            webHook: {
-                host: host,
-                port: port
-            }
-        }
-        
-        this.bot = new telegramBotApi(this.token, this.options);
-        this.bot.messageParser = this.messageParser;
-    }
-    
-    /**
-     * Adds a callback which is called everytime the telegram api recieves a message
-     * @param {messageCallback} callback - The callback that for each message
-     */
-    start(callback) {
-        this.bot.on('message', (msg) => {
+        this.on('message', (msg) => {
             console.log(msg.text);
             this.messageParser.getLastNode(msg, function(node) {
                 if(node == null) {
