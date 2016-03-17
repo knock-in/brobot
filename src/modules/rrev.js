@@ -1,8 +1,8 @@
 var BaseModule = require("./basemodule.js");
 
 class RRevModule extends BaseModule {
-    constructor(data, node, msg, _args) {
-        super(data, node, msg, _args);
+    constructor(msg, data, node, _args) {
+        super(msg, data, node, _args);
     }
     
     static getOptions() {

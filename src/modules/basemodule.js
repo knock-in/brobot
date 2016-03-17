@@ -1,9 +1,9 @@
 class BaseModule {
-    constructor(data, node, msg, _args) {
-        this.token = data;
+    constructor(msg, token, node, _args) {
+        this.msg = msg;
+        this.token = token;
         this.node = node;
         this._args = _args || [];
-        this.msg = msg;
     }
 
     static getOptions() {

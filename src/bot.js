@@ -1,33 +1,37 @@
-var telegramBotApi = require('node-telegram-bot-api');
-var MessageParser = require("./msgparser.js");
+const telegramBotApi = require('node-telegram-bot-api');
+const MessageParser = require('./msgparser.js');
 
-/** Brobot class */
-class Brobot extends telegramBotApi{
-    /**
-     * Creates a new instance of class Brobot.
-     * @param {string} token - AppToken for your telegram bot. If you dont have one, talk to botfather.
-     * @param {string} host - Host which the telegram api listens for new messages.
-     * @param {messageCallback} callback - The callback that for each message.
-     */
-    constructor(token, options, callback) {
-        super(token, options);
-        this.messageParser = new MessageParser();
-        
-        this.on('message', (msg) => {
-            console.log(msg.text);
-            this.messageParser.getLastNode(msg, function(node) {
-                if(node == null) {
-                    console.log('No nodes to process');
-                    return;
-                }
-                
-                // Last instance before user gets response
-                node.addFirst('bro');
-                // Possibility to pass other arguments with first parameter
-                node.getData().execute([], callback);
-            });
-        });
-    }
+/**
+* Brobot class
+* @extends telegramBotApi
+*/
+class Brobot extends telegramBotApi {
+  /**
+   * Creates a new instance of class Brobot.
+   * @param {string} token - AppToken for your telegram bot.
+   * @param {string} host - Host which the telegram api listens for new messages.
+   * @param {messageCallback} callback - The callback that for each message.
+   */
+  constructor(token, options, callback) {
+    super(token, options);
+    this.messageParser = new MessageParser();
+
+    this.on('message', (msg) => {
+      console.log(msg.text);
+
+      this.messageParser.getLastNode(msg, (node) => {
+        if (node === null) {
+          console.log('No nodes to process');
+          return;
+        }
+
+        // Last instance before user gets response
+        node.addFirst('bro');
+        // Possibility to pass other arguments with first parameter
+        node.getData().execute([], callback);
+      });
+    });
+  }
 }
 
 /**

@@ -2,8 +2,8 @@ var BaseModule = require("./basemodule.js");
 var morse = require("morse");
 
 class MorseModule extends BaseModule {
-    constructor(data, node, msg, _args) {
-        super(data, node, msg, _args);
+    constructor(msg, data, node, _args) {
+        super(msg, data, node, _args);
     }
     
     static getOptions() {
