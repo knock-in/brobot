@@ -23,7 +23,7 @@ gulp.task('cleanAll', ['cleanSrc', 'cleanDocs']);
 
 gulp.task('buildDocs', ['cleanDocs'], shell.task(['jsdoc -c conf.json -d docs -t ./node_modules/ink-docstrap/template -R README.md -r .']));
 
-gulp.task('buildDocs:push', ['buildDocs'], shell.task(['git subtree push --prefix docs origin gh-pages']));
+gulp.task('buildDocs:push', shell.task(['git subtree push --prefix docs origin gh-pages']));
 
 gulp.task('buildSrc', ['cleanDist'], function() {
     return gulp.src(SRC)
