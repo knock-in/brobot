@@ -15,7 +15,7 @@ class MessageParser {
   /**
    * Parse incoming message and calls callback with last node
    * @param {Object} msg
-   * @param {lastNodeCallback} callback - Callback for last node
+   * @param {MessageParser~lastNodeCallback} callback - Callback for last node
    */
   getLastNode(msg, callback) {
     // remove multiple whitespace
@@ -46,17 +46,20 @@ class MessageParser {
       node.data = new Module(msg, token, node);
     });
 
+    // Iterate through every token, except first one
     for (let i = 1; i < len; i++) {
+      // Add to linked list
       first.addLast(tokenArray[i]);
     }
 
+    // Call recursive function getLast with callback as argument
     first.getLast(callback);
   }
 }
 
 /**
  * Last Node callback
- * @callback lastNodeCallback
+ * @callback MessageParser~lastNodeCallback
  * @param {Node} node - Last node which contains the token and module.
  */
 module.exports = MessageParser;

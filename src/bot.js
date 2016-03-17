@@ -9,8 +9,8 @@ class Brobot extends telegramBotApi {
   /**
    * Creates a new instance of class Brobot.
    * @param {string} token - AppToken for your telegram bot.
-   * @param {string} host - Host which the telegram api listens for new messages.
-   * @param {messageCallback} callback - The callback that for each message.
+   * @param {string} options - Host which the telegram api listens for new messages.
+   * @param {Brobot~messageCallback} callback - The callback that for each message.
    */
   constructor(token, options, callback) {
     super(token, options);
@@ -36,8 +36,8 @@ class Brobot extends telegramBotApi {
 
 /**
  * Message Callback.
- * @callback messageCallback
- * @param {Object} msg - The untouched message we recieved from telegram.
+ * @callback Brobot~messageCallback
+ * @param {} msg - The untouched message we recieved from telegram.
  * @param {string} msg.text - The text of the message.
  * @param {string} msg.chat.id - Chat id which can be used for replys and so on.
  * @param {string[]} _args - Array of tokens returned from all modules of this message
