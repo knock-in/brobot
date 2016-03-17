@@ -7,7 +7,7 @@ var del = require("del");
 var shell = require("gulp-shell");
 
 var SRC = 'src/**/*.js';
-var DIST = 'dist/';
+var DIST = 'dist';
 var SPEC = 'spec/';
 var DOC = 'docs/';
 
@@ -26,7 +26,7 @@ gulp.task('buildDocs', ['cleanDocs'], shell.task(['jsdoc -c conf.json -d docs -t
 gulp.task('buildDocs:push', ['buildDocs'], shell.task(['git subtree push --prefix docs origin gh-pages']));
 
 gulp.task('buildSrc', ['cleanDist'], function() {
-    gulp.src(SRC)
+    return gulp.src(SRC)
         .pipe(babel())
         .pipe(gulp.dest(DIST));
 });
@@ -34,7 +34,7 @@ gulp.task('buildSrc', ['cleanDist'], function() {
 gulp.task('buildAll', ['buildSrc', 'buildDocs']);
 
 gulp.task('autoBuild', ['buildSrc'], function() {
-    gulp.src(SRC)
+    return gulp.src(SRC)
         .pipe(watch(SRC).on('change', function(path){
             gutil.log(`File ${path} has been changed`);
         }))
@@ -45,6 +45,6 @@ gulp.task('autoBuild', ['buildSrc'], function() {
 gulp.task('default', ['autoBuild']);
 
 gulp.task('test', ['buildSrc'], function() {
-   gulp.src('spec/*')
+   return gulp.src('spec/*')
         .pipe(jasmine());
 });
