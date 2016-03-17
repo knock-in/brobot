@@ -3,29 +3,48 @@ var babel = require("gulp-babel");
 var jasmine = require('gulp-jasmine');
 var watch = require("gulp-watch");
 var gutil = require('gulp-util');
+var del = require("del");
+var shell = require("gulp-shell");
 
 var SRC = 'src/**/*.js';
-var DEST = 'dist';
+var DIST = 'dist/';
+var SPEC = 'spec/';
+var DOC = 'docs/';
 
-gulp.task('buildAll', function() {
-    return gulp.src(SRC)
-        .pipe(babel())
-        .pipe(gulp.dest(DEST));
+gulp.task('cleanDist', function() {
+    del(DIST);
 });
 
-gulp.task('default', function() {
-    return gulp.src(SRC)
+gulp.task('cleanDocs', function() {
+    del(DOC);
+});
+
+gulp.task('cleanAll', ['cleanSrc', 'cleanDocs']);
+
+gulp.task('buildDocs', ['cleanDocs'], shell.task(['jsdoc -c conf.json -d docs -t ./node_modules/ink-docstrap/template -R README.md -r .']));
+
+gulp.task('buildDocs:push', ['buildDocs'], shell.task(['git subtree push --prefix docs origin gh-pages']));
+
+gulp.task('buildSrc', ['cleanDist'], function() {
+    gulp.src(SRC)
+        .pipe(babel())
+        .pipe(gulp.dest(DIST));
+});
+
+gulp.task('buildAll', ['buildSrc', 'buildDocs']);
+
+gulp.task('autoBuild', ['buildSrc'], function() {
+    gulp.src(SRC)
         .pipe(watch(SRC).on('change', function(path){
             gutil.log(`File ${path} has been changed`);
         }))
         .pipe(babel())
-        .pipe(gulp.dest(DEST));
+        .pipe(gulp.dest(DIST));
 });
 
-gulp.task('test', ['buildAll'], function() {
+gulp.task('default', ['autoBuild']);
+
+gulp.task('test', ['buildSrc'], function() {
    gulp.src('spec/*')
         .pipe(jasmine());
 });
-
-// TODO: Gulp task for documentation: jsdoc -c conf.json -d docs -t ./node_modules/ink-docstrap/template -R README.md -r .
-// TODO: Gulp task to push documentation to gh-pages branch: git subtree push --prefix docs origin gh-pages
