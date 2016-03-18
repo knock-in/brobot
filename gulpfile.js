@@ -13,11 +13,11 @@ var SPEC = 'spec/';
 var DOC = 'docs';
 
 gulp.task('cleanDist', function() {
-    del(DIST);
+    return del(DIST);
 });
 
 gulp.task('cleanDocs', function() {
-    del(DOC);
+    return del(DOC);
 });
 
 gulp.task('cleanAll', ['cleanSrc', 'cleanDocs']);
