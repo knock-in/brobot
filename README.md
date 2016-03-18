@@ -52,7 +52,7 @@ Now you can start your bot from `/dist`directory and try out the modules.
 
  1. Switch to `/modules`directory.
  2. Create a new .js file in `/modules` directory for example myModule.js.
- 3. [Check out how brobot handles it's modules.](https://knock-in.github.io/brobot/docco/moduleExample.html)
+ 3. [Check out how brobot handles it's modules.](https://knock-in.github.io/brobot/docco/exampleModule.html)
  4. If your module looks like the example module and is in the /modules directory, you're done. Brobot detects every new module by itself if it is in the right directory.
  5. `gulp buildSrc` again to build your new module.
  
