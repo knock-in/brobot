@@ -7,9 +7,9 @@ const options = {
   },
 };
 
-const appToken = process.env.appToken;
+const apiToken = process.env.API_TOKEN;
 
-const brobot = new Brobot(appToken, options, (msg, _args) => {
+const brobot = new Brobot(apiToken, options, (msg, _args) => {
   let str = '';
   const len = _args.length;
 
