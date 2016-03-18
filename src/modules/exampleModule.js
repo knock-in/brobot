@@ -1,4 +1,4 @@
-// # How Brobot it's handles modules
+// # How Brobot handles it's modules
 // ----------------
 // ## Example Module
 
@@ -17,7 +17,7 @@ class ExampleModule extends BaseModule {
       // called**, for example a message like 'example hey' would not call our
       // because there is only one argument(hey) but we need at least 2
       minArgs: 2,
-      // Active decides if this module should be active or not
+      // **Active** decides if this module should be active or not
       active: true,
     };
   }
