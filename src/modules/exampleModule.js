@@ -18,7 +18,7 @@ class ExampleModule extends BaseModule {
       // because there is only one argument(hey) but we need at least 2
       minArgs: 2,
       // **Active** decides if this module should be active or not
-      active: true,
+      active: false,
     };
   }
 
