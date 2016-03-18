@@ -4,7 +4,9 @@
   "description": "module-based telegram bot",
   "main": "dist/app.js",
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "start": "node dist/app.js",
+    "postinstall": "gulp"
   },
   "repository": {
     "type": "git",

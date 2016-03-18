@@ -43,7 +43,7 @@ gulp.task('autoBuild', ['buildSrc'], function() {
         .pipe(gulp.dest(DIST));
 });
 
-gulp.task('default', ['autoBuild']);
+gulp.task('default', ['buildSrc']);
 
 gulp.task('test', ['buildSrc'], function() {
    return gulp.src('spec/*')
