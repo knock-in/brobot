@@ -8,15 +8,17 @@ Brobot is a module-based telegram bot which uses [yagops telegram API](https://g
 First we have to install gulp, if you haven't already type this in your terminal:
 
 `npm install -g gulp`
+
 Now we're ready to setup our repository by typing the following commands into your terminal:
 
-`git clone https://github.com/knock-in/brobot.git
-cd brobot/
-npm install`
+`git clone https://github.com/knock-in/brobot.git`
+`cd brobot/`
+`npm install`
 
 To create a new brobot instance you have to create a new file in the `src/` directory, the content could look like this:
 
-```javascript const Brobot = require('./bot.js');
+```javascript
+const Brobot = require('./bot.js');
     
     const options = {
       webHook: {
@@ -36,7 +38,8 @@ To create a new brobot instance you have to create a new file in the `src/` dire
       }
     
       brobot.sendMessage(msg.chat.id, str);
-    });```
+    });
+```
     
 Don't forget to replace your-host, your-port and your-api-token with your actual values.
 To build type:
