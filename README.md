@@ -4,7 +4,7 @@
 ----------
 Brobot is a module-based telegram bot which uses [yagops telegram API](https://github.com/yagop/node-telegram-bot-api) for interaction with telegram. For more information check out the [documentation](https://knock-in.github.io/brobot). (No rhyme intention)
 
-#### **Get started**
+#### **Geting started!**
 First we have to install gulp, if you haven't already type this in your terminal:
 
 `npm install -g gulp`
@@ -41,7 +41,7 @@ const Brobot = require('./bot.js');
     });
 ```
     
-Don't forget to replace your-host, your-port and your-api-token with your actual values.
+Don't forget to replace `your-host`, `your-port` and `your-api-token` with your actual values.
 To build type:
 
 `gulp buildSrc`
