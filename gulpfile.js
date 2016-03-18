@@ -10,7 +10,7 @@ var eslint = require("gulp-eslint");
 var SRC = 'src/**/*.js';
 var DIST = 'dist';
 var SPEC = 'spec/';
-var DOC = 'docs/';
+var DOC = 'docs';
 
 gulp.task('cleanDist', function() {
     del(DIST);
@@ -22,7 +22,7 @@ gulp.task('cleanDocs', function() {
 
 gulp.task('cleanAll', ['cleanSrc', 'cleanDocs']);
 
-gulp.task('buildDocs', ['cleanDocs'], shell.task(['jsdoc -c conf.json -d docs -t ./node_modules/ink-docstrap/template -R README.md -r .']));
+gulp.task('buildDocs', ['cleanDocs'], shell.task(['jsdoc -c conf.json -d docs -t ./node_modules/ink-docstrap/template -R README.md -r .', 'docco src/modules/exampleModule.js -o docs/docco/']));
 
 gulp.task('buildDocs:push', shell.task(['git subtree push --prefix docs origin gh-pages']));
 
