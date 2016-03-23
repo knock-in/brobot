@@ -12,9 +12,11 @@ Type the following commands into your terminal:
 
 `cd brobot/`
 
+`npm install -g gulp-cli`
+
 `npm install`
 
-Now open `src/app.js` and replace `process.env.HOST` and `process.env.IP` with the actual host and ip brobot should listen for incoming messages, then replace `process.env.API_TOKEN` with your bot's API Token which Botfather gave you.
+Now open `src/app.js` and replace `process.env.HOST` and `process.env.IP` with the actual host and ip brobot should listen for incoming messages, then replace `process.env.API_TOKEN` with your bot's API Token which Botfather gave you. Altenatively you can also just set the right envirement variables.
 
 To build finally:
 
