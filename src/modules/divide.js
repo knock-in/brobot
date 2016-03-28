@@ -1,9 +1,9 @@
 const BaseModule = require('./basemodule.js');
 
-class PlusModule extends BaseModule {
+class DivideModule extends BaseModule {
   static getOptions() {
     return {
-      trigger: '+',
+      trigger: '/',
       minArgs: 2,
       active: true,
     };
@@ -13,7 +13,7 @@ class PlusModule extends BaseModule {
     let i = 0;
 
     if (this.isNumber(_args[0]) && this.isNumber(_args[1])) {
-      this._args.push(Number(_args[0]) + Number(_args[1]));
+      this._args.push(Number(_args[0]) / Number(_args[1]));
       i = 2;
     }
 
@@ -23,4 +23,4 @@ class PlusModule extends BaseModule {
   }
 }
 
-module.exports = PlusModule;
+module.exports = DivideModule;
