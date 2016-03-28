@@ -4,7 +4,7 @@
 ----------
 Brobot is a module-based telegram bot which uses [yagops telegram API](https://github.com/yagop/node-telegram-bot-api) for interaction with telegram. For more information check out the [documentation](https://knock-in.github.io/brobot). (No rhyme intention)
 
-#### **Geting started!**
+#### **Getting started!**
 
 Type the following commands into your terminal:
 
