@@ -1,6 +1,6 @@
 const BaseModule = require('./basemodule.js');
 
-class ModuleMapper {
+class ModuleMap {
   constructor() {
     this.moduleMap = new Map();
 
@@ -20,13 +20,16 @@ class ModuleMapper {
     }
   }
 
-  map(key) {
+  get(key) {
     let module = this.moduleMap.get(key.toLowerCase());
+    
     if (module === undefined) {
-      module = BaseModule;
+      // If module not in modulemap - so undefined - return basemodule
+      return BaseModule;
+    } else {
+      // Otherwise return module
+      return module;
     }
-
-    return module;
   }
 
   exists(key) {

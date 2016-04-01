@@ -1,6 +1,6 @@
 class BaseModule {
-  constructor(msg, token, node, _args) {
-    this.msg = msg;
+  constructor(session, token, node, _args) {
+    this.session = session;
     this.token = token;
     this.node = node;
     this._args = _args || [];
@@ -62,7 +62,7 @@ class BaseModule {
     if (this.node.prev !== null) {
       this.node.prev.getData().execute(this._args, callback);
     } else {
-      callback(this.msg, this._args);
+      callback(this.session, this._args);
     }
   }
 }

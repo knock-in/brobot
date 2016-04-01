@@ -39,10 +39,11 @@
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
     "ink-docstrap": "^1.1.4",
-    "jasmine": "^2.4.1",
     "jsdoc": "^3.4.0"
   },
   "dependencies": {
-    "morse": "^0.1.0"
+    "botbuilder": "^0.6.2",
+    "morse": "^0.1.0",
+    "restify": "^4.0.4"
   }
 }
