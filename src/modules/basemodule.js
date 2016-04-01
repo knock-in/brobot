@@ -50,14 +50,16 @@ class BaseModule {
     }
   }
 
-  work(callback, _args) {
-    this._args.push(this.token);
+  work(_args, callback) {
+    let retArgs = [];
+
+    retArgs.push(this.token);
 
     for (let i = 0, len = _args.length; i < len; i++) {
-      this._args.push(_args[i]);
+      retArgs.push(_args[i]);
     }
 
-    this.pass(this._args, callback);
+    this.pass(retArgs, callback);
   }
 
   pass(_args, callback) {
