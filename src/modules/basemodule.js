@@ -51,7 +51,7 @@ class BaseModule {
   }
 
   work(_args, callback) {
-    let retArgs = [];
+    const retArgs = [];
 
     retArgs.push(this.token);
 

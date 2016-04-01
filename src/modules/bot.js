@@ -12,7 +12,7 @@ class BotModule extends BaseModule {
 
   // This is always the last instance before user gets response
   work(_args, callback) {
-    let retArgs = [];
+    const retArgs = [];
 
     if (_args[0].toLowerCase() === 'echo') {
       // echo arguments

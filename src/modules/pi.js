@@ -10,14 +10,14 @@ class PiModule extends BaseModule {
   }
 
   work(_args, callback) {
-    let retArgs = [];
+    const retArgs = [];
 
     // Push pi to returning arguments
     retArgs.push(Math.PI);
 
     // Push every other argument too, otherwise we would loose them.
     // This is important because the next module needs them maybe.
-    for(let i = 0;i < _args.length;i++) {
+    for (let i = 0; i < _args.length; i++) {
       retArgs.push(_args[i]);
     }
 

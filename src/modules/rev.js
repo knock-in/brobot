@@ -9,8 +9,8 @@ class RevModule extends BaseModule {
     };
   }
 
-  work(_args) {
-    this._args = _args.reverse();
+  work(_args, callback) {
+    this.pass(_args.reverse(), callback);
   }
 }
 

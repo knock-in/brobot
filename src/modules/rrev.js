@@ -9,10 +9,12 @@ class RRevModule extends BaseModule {
     };
   }
 
-  work(_args) {
+  work(_args, callback) {
+    const retArgs = [];
     for (let i = 0; i < _args.length; i++) {
-      this._args.push(_args[i].split('').reverse().join(''));
+      retArgs.push(_args[i].split('').reverse().join(''));
     }
+    this.pass(retArgs, callback);
   }
 }
 
