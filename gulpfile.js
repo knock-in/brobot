@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var babel = require("gulp-babel");
-var jasmine = require('gulp-jasmine');
+var mocha = require('gulp-mocha');
 var watch = require("gulp-watch");
 var gutil = require('gulp-util');
 var del = require("del");
@@ -47,7 +47,7 @@ gulp.task('default', ['buildSrc']);
 
 gulp.task('test', ['buildSrc'], function() {
    return gulp.src('spec/*')
-        .pipe(jasmine());
+        .pipe(mocha());
 });
 
 gulp.task('lint', function() {

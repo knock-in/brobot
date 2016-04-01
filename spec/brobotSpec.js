@@ -1,10 +1,6 @@
-var SpecReporter = require("jasmine-spec-reporter");
-
-jasmine.getEnv().addReporter(new SpecReporter({
-  displaySpecDuration: true   // display each spec duration
-}));
-
 var MessageParser = require("../dist/msgparser.js");
+var assert = require('assert');
+
 var msgparser = new MessageParser();
 
 
@@ -18,15 +14,15 @@ describe("Message parser test suite", function() {
         lastNode = node;
     });
     
-    it("Last node is not null", function() {
-        expect(lastNode).not.toBeNull();
+    it("Last node should not be undefined", function() {
+        assert.notEqual(lastNode, undefined);
     });
     
-    it("Last node data is not null", function() {
-        expect(lastNode.getData()).not.toBeNull();
+    it("Last node data should not be undefined", function() {
+        assert.notEqual(lastNode.getData(), undefined);
     });
     
     it("Last node token is `okay?`", function() {
-        expect(lastNode.getData().token).toMatch('okay?');  
+        assert.equal(lastNode.getData().token, 'okay?');  
     });
 });
