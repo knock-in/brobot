@@ -9,7 +9,8 @@ class DivideModule extends BaseModule {
     };
   }
 
-  work(_args) {
+  work(_args, callback) {
+    let retArgs = [];
     let i = 0;
 
     if (this.isNumber(_args[0]) && this.isNumber(_args[1])) {

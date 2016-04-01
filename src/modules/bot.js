@@ -11,15 +11,17 @@ class BotModule extends BaseModule {
   }
 
   // This is always the last instance before user gets response
-  work(_args) {
+  work(_args, callback) {
+    let retArgs = [];
+
     if (_args[0].toLowerCase() === 'echo') {
       // echo arguments
       for (let i = 1; i < _args.length; i++) {
-        this._args.push(_args[i]);
+        retArgs.push(_args[i]);
       }
-    } else {
-      // Every other case surpress output
     }
+
+    this.pass(retArgs, callback);
   }
 }
 

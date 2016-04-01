@@ -33,7 +33,7 @@ class BaseModule {
       // Enough arguments so do the module-work
       console.log('Enough arguments');
       console.log(_args);
-      this.work(_args || []);
+      this.work(_args || [], callback);
     } else {
       // Not enough arguments for this module so just pass them all to the next
       // module, which meets the requirements hopefully
@@ -45,24 +45,26 @@ class BaseModule {
       for (let i = 0; i < _args.length; i++) {
         this._args.push(_args[i]);
       }
-    }
 
-    // Pass resulted arguments of this module to the next
-    this.pass(callback);
+      this.pass(this._args, callback);
+    }
   }
 
-  work(_args) {
+  work(callback, _args) {
     this._args.push(this.token);
+
     for (let i = 0, len = _args.length; i < len; i++) {
       this._args.push(_args[i]);
     }
+
+    this.pass(this._args, callback);
   }
 
-  pass(callback) {
+  pass(_args, callback) {
     if (this.node.prev !== null) {
-      this.node.prev.getData().execute(this._args, callback);
+      this.node.prev.getData().execute(_args, callback);
     } else {
-      callback(this.session, this._args);
+      callback(this.session, _args);
     }
   }
 }

@@ -9,8 +9,21 @@ class PiModule extends BaseModule {
     };
   }
 
-  work(_args) {
-    this._args.push(Math.PI);
+  work(_args, callback) {
+    let retArgs = [];
+
+    // Push pi to returning arguments
+    retArgs.push(Math.PI);
+
+    // Push every other argument too, otherwise we would loose them.
+    // This is important because the next module needs them maybe.
+    for(let i = 0;i < _args.length;i++) {
+      retArgs.push(_args[i]);
+    }
+
+    // Call pass function with our returning arguments and our callback
+    // This function calls the next module
+    this.pass(retArgs, callback);
   }
 }
 
