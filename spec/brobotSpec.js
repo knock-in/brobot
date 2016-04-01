@@ -1,16 +1,15 @@
-var MessageParser = require("../dist/msgparser.js");
+var Brobot = require("../dist/brobot.js");
 var assert = require('assert');
 
-var msgparser = new MessageParser();
+var brobot = new Brobot({});
 
 
 describe("Message parser test suite", function() {
-    var msg = {};
+    var session = {message: {text: 'bro, are you okay?'}};
     
-    msg.text = "bro, are you okay?";
     var lastNode;
     
-    msgparser.getLastNode(msg, function(node) {
+    brobot.sessionHandler(session, function(node) {
         lastNode = node;
     });
     

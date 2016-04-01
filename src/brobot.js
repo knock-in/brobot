@@ -1,5 +1,6 @@
 const builder = require('botbuilder');
 const ModuleMap = require('./modules');
+const Node = require('./node.js');
 
 /**
 * Brobot class
@@ -14,6 +15,8 @@ class Brobot extends builder.BotConnectorBot {
    */
   constructor(options, callback) {
     super(options);
+
+    this.moduleMap = new ModuleMap();
 
     this.add('/', (session) => {
       console.log(session.message.text);
@@ -34,10 +37,6 @@ class Brobot extends builder.BotConnectorBot {
   }
 
   sessionHandler(session, callback) {
-    // Parse Message
-    // Get Message Nodes
-    // Execute Nodes
-    // Pass session
     // remove multiple whitespace
     let text = session.message.text;
     while (text.indexOf('  ') !== -1) {
@@ -60,7 +59,7 @@ class Brobot extends builder.BotConnectorBot {
     // First node
     const first = new Node(tokenArray[0], null, null, (token, node) => {
       // Find module according to token
-      const Module = this.moduleMapper.get(token);
+      const Module = this.moduleMap.get(token);
 
       // Node data is an instance of found module
       node.data = new Module(session, token, node);

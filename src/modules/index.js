@@ -37,4 +37,4 @@ class ModuleMap {
   }
 }
 
-module.exports = ModuleMapper;
+module.exports = ModuleMap;
