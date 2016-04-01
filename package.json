@@ -44,7 +44,6 @@
     "jsdoc": "^3.4.0"
   },
   "dependencies": {
-    "morse": "^0.1.0",
-    "node-telegram-bot-api": "^0.20.1"
+    "morse": "^0.1.0"
   }
 }
