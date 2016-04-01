@@ -21,7 +21,7 @@ class Brobot extends builder.BotConnectorBot {
     this.add('/', (session) => {
       console.log(session.message.text);
 
-      this.messageParser.getLastNode(session.message, (node) => {
+      this.sessionHandler(session.message, (node) => {
         if (node === null) {
           console.log('No nodes to process');
           return;
