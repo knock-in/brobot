@@ -1,6 +1,6 @@
 const BaseModule = require('./basemodule.js');
 
-class BrobotModule extends BaseModule {
+class BotModule extends BaseModule {
 
   static getOptions() {
     return {
@@ -23,4 +23,4 @@ class BrobotModule extends BaseModule {
   }
 }
 
-module.exports = BrobotModule;
+module.exports = BotModule;

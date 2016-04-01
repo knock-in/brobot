@@ -1,15 +1,10 @@
 const Brobot = require('./bot.js');
+const restify = require('restify');
 
-const options = {
-  webHook: {
-    host: process.env.IP,
-    port: process.env.PORT,
-  },
-};
+const appId = process.env.APP_ID || 'appID';
+const appSecret = process.env.APP_SECRET || 'appSecret';
 
-const apiToken = process.env.API_TOKEN;
-
-const brobot = new Brobot(apiToken, options, (msg, _args) => {
+const brobot = new Brobot(options, (session, _args) => {
   let str = '';
   const len = _args.length;
 
@@ -17,5 +12,12 @@ const brobot = new Brobot(apiToken, options, (msg, _args) => {
     str += _args[i].toString() + ((len - i > 1) ? ' ' : '');
   }
 
-  brobot.sendMessage(msg.chat.id, str);
+  session.send(str);
+});
+
+const server = restify.createServer();
+server.post('/api/messages', brobot.verifyBotFramework(), brobot.listen());
+
+server.listen(process.env.PORT || 8080, () => {
+  console.log('%s listening to %s', server.name, server.url);
 });

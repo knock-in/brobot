@@ -7,13 +7,13 @@ class Node {
    * @param {Object} data - Data which is stored in this node.
    * @param {Node} prev - Previous node.
    * @param {Node} next - Next node.
-   * @param {Node~mappingCallback} callback - Callback which can be used to map stored data.
+   * @param {Node~reviverCallback} callback - Reviver function to mutate {data} when a node is added.
    */
-  constructor(data, prev, next, callback) {
-    callback(data, this);
+  constructor(data, prev, next, reviver) {
+    reviver(data, this);
     this.next = next;
     this.prev = prev;
-    this.callback = callback;
+    this.reviver = reviver;
   }
 
   /**
@@ -22,7 +22,7 @@ class Node {
    */
   addLast(data) {
     if (this.next === null) {
-      this.next = new Node(data, this, null, this.callback);
+      this.next = new Node(data, this, null, this.reviver);
     } else {
       this.next.addLast(data);
     }
@@ -34,7 +34,7 @@ class Node {
    */
   addFirst(data) {
     if (this.prev === null) {
-      this.prev = new Node(data, null, this, this.callback);
+      this.prev = new Node(data, null, this, this.reviver);
     } else {
       this.prev.addFirst(data);
     }
@@ -74,7 +74,7 @@ class Node {
 }
 /**
  * Mapping callback
- * @callback Node~mappingCallback
+ * @callback Node~reviverCallback
  * @param {} data - Data of Node.
  * @param {Node} node - Node itself.
  */
