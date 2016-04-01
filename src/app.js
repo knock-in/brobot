@@ -4,7 +4,7 @@ const restify = require('restify');
 const appId = process.env.APP_ID || 'appID';
 const appSecret = process.env.APP_SECRET || 'appSecret';
 
-const brobot = new Brobot(options, (session, _args) => {
+const brobot = new Brobot({ appId, appSecret }, (session, _args) => {
   let str = '';
   const len = _args.length;
 

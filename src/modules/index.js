@@ -21,15 +21,15 @@ class ModuleMap {
   }
 
   get(key) {
-    let module = this.moduleMap.get(key.toLowerCase());
-    
+    const module = this.moduleMap.get(key.toLowerCase());
+
     if (module === undefined) {
       // If module not in modulemap - so undefined - return basemodule
       return BaseModule;
-    } else {
-      // Otherwise return module
-      return module;
     }
+
+    // Otherwise return module
+    return module;
   }
 
   exists(key) {

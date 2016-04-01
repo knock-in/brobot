@@ -7,7 +7,7 @@ class Node {
    * @param {Object} data - Data which is stored in this node.
    * @param {Node} prev - Previous node.
    * @param {Node} next - Next node.
-   * @param {Node~reviverCallback} callback - Reviver function to mutate {data} when a node is added.
+   * @param {Node~reviverCallback} callback - Function to mutate {data} when a node is added.
    */
   constructor(data, prev, next, reviver) {
     reviver(data, this);
