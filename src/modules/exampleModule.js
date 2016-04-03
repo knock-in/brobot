@@ -24,11 +24,17 @@ class ExampleModule extends BaseModule {
 
   // Everytime a user triggers a module it's **work** function gets called, and
   // the arguments get passed with parameter **_args** which is a string array
-  work(_args) {
-    // this._args is a string array to which holds the arguments which our
+  // We have to pass returning arguments and **callback** to **pass function**
+  work(_args, callback) {
+    const retArgs = [];
+    // retArgs is a string array to which holds the arguments which our
     // module **returns**, so if we want to reply to our users we have to push
-    // strings to this._args like in this example
-    this._args.push(`Example Module executed with ${_args.length} arguments`);
+    // strings to retArgs and pass them with **this.pass** like in this example
+    // Fill array
+    retArgs.push('I am an example argument');
+    retArgs.push('I am another argument');
+    // Pass array
+    this.pass(retArgs, callback);
   }
 }
 

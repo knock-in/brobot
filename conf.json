@@ -17,7 +17,7 @@
         "copyright"             :  "",
         "includeDate"           : "true",
         "navType"               : "vertical",
-        "theme"                 : "sandstone",
+        "theme"                 : "slate",
         "linenums"              : "true",
         "collapseSymbols"       : "true",
         "inverseNav"            : "true",

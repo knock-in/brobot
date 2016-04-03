@@ -1,36 +1,59 @@
 
 
-###	**[Brobot](https://knock-in.github.io/brobot)**	[![Build Status](https://travis-ci.org/knock-in/brobot.svg?branch=master)](https://travis-ci.org/knock-in/brobot)
+#[Brobot](https://knock-in.github.io/brobot)	[![Build Status](https://travis-ci.org/knock-in/brobot.svg?branch=development)](https://travis-ci.org/knock-in/brobot)
+
 ----------
-Brobot is a module-based telegram bot which uses [yagops telegram API](https://github.com/yagop/node-telegram-bot-api) for interaction with telegram. For more information check out the [documentation](https://knock-in.github.io/brobot). (No rhyme intention)
 
-#### **Getting started!**
+Brobot is a modular, easy to extend bot, based on Microsofts BotConnectorBot. For more details you can read the documentation here.
 
-Type the following commands into your terminal:
+### Getting started
 
-`git clone https://github.com/knock-in/brobot.git`
+Install Brobot with this command:
 
-`cd brobot/`
+`npm install brobot`
 
-`npm install -g gulp-cli`
+### Examples
 
-`npm install`
+You can find some examples in the examples directory in this repo.
 
-Now open `src/app.js` and replace `process.env.HOST` and `process.env.IP` with the actual host and ip brobot should listen for incoming messages, then replace `process.env.API_TOKEN` with your bot's API Token which Botfather gave you. Altenatively you can also just set the right environment variables.
+Like this:
 
-To build finally:
+```javascript
+var Brobot = require('brobot');
+var restify = require('restify');
 
-`gulp`
+var appId = process.env.APP_ID || 'YourAppId';
+var appSecret = process.env.APP_SECRET || 'YourAppSecret';
 
-Now you can start your bot with:
+// Initialize brobot with appId and appSecret of BotConnector. Read more: http://docs.botframework.com/connector/getstarted/#navtitle
+var brobot = new Brobot({ appId: appId, appSecret: appSecret }, function(session, returnArgs) {
+  var response = '';
 
-`npm start`
+  // Store count of arguments brobot returned for this message
+  var argCount = returnArgs.length;
 
-#### **How to write new modules**
+  // Iterate throught every argument
+  for (var i = 0; i < argCount; i++) {
+    // Append every argument to 'str'
+    response += returnArgs[i];
+  }
 
- 1. Switch to `/modules`directory.
- 2. Create a new .js file in `/modules` directory for example myModule.js.
- 3. [Check out how brobot handles it's modules.](https://knock-in.github.io/brobot/docco/exampleModule.html)
- 4. If your module looks like the example module and is in the /modules directory, you're done. Brobot detects every new module by itself if it is in the right directory.
- 5. `gulp` again to build your new module.
- 
+  // Reply to our chat with result of message
+  session.send(response);
+});
+
+// This is just the server which listens for new messages from botconnector
+const server = restify.createServer();
+server.post('/api/messages', brobot.verifyBotFramework(), brobot.listen());
+
+server.listen(process.env.PORT || 8080, () => {
+  console.log('%s listening to %s', server.name, server.url);
+});
+```
+
+### Add new modules
+
+Brobot handles every .js file in /src/modules as a module. If you want to know how a module should look like, click [here](http://knock-in.github.io/brobot/docco/exampleModule.html).
+
+To add new modules to this repo you should fork, add a module and make a pull request. I'll review it as soon as possible.
+

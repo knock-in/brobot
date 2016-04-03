@@ -1,20 +1,27 @@
 var Brobot = require('../dist/brobot.js');
 var restify = require('restify');
 
-var appId = process.env.APP_ID || 'appID';
-var appSecret = process.env.APP_SECRET || 'appSecret';
+var appId = process.env.APP_ID || 'YourAppId';
+var appSecret = process.env.APP_SECRET || 'YourAppSecret';
 
+// Initialize brobot with appId and appSecret of BotConnector. Read more: http://docs.botframework.com/connector/getstarted/#navtitle
 var brobot = new Brobot({ appId: appId, appSecret: appSecret }, function(session, _args) {
   var str = '';
-  const len = _args.length;
 
+  // Store count of arguments brobot returned for this message
+  var len = _args.length;
+
+  // Iterate throught every argument
   for (var i = 0; i < len; i++) {
-    str += _args[i].toString() + ((len - i > 1) ? ' ' : '');
+    // Append every argument to 'str'
+    str += _args[i];
   }
 
+  // Reply to our chat with result of message
   session.send(str);
 });
 
+// This is just the server which listens for new messages from botconnector
 const server = restify.createServer();
 server.post('/api/messages', brobot.verifyBotFramework(), brobot.listen());
 
