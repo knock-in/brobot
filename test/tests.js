@@ -4,7 +4,7 @@ var assert = require('assert');
 var brobot = new Brobot({});
 
 
-describe("Message parser test suite", function() {
+describe("Brobot tests", function() {
     var session = {message: {text: 'bro, are you okay?'}};
     
     var lastNode;

@@ -7,17 +7,19 @@ var del = require("del");
 var shell = require("gulp-shell");
 var eslint = require("gulp-eslint");
 
-var SRC = 'src/**/*.js';
-var DIST = 'dist';
-var SPEC = 'spec/';
-var DOC = 'docs';
+const dirs = {
+    src: 'src/**/*.js',
+    dist: 'dist/',
+    test: 'test/*',
+    docs: 'docs/'
+};
 
 gulp.task('cleanDist', function() {
-    return del(DIST);
+    return del(dirs.dist);
 });
 
 gulp.task('cleanDocs', function() {
-    return del(DOC);
+    return del(dirs.docs);
 });
 
 gulp.task('cleanAll', ['cleanSrc', 'cleanDocs']);
@@ -27,42 +29,42 @@ gulp.task('buildDocs', ['cleanDocs'], shell.task(['jsdoc -c conf.json -d docs -t
 gulp.task('buildDocs:push', shell.task(['git subtree push --prefix docs origin gh-pages']));
 
 gulp.task('buildSrc', ['cleanDist'], function() {
-    return gulp.src(SRC)
+    return gulp.src(dirs.src)
         .pipe(babel())
-        .pipe(gulp.dest(DIST));
+        .pipe(gulp.dest(dirs.dist));
 });
 
 gulp.task('buildAll', ['buildSrc', 'buildDocs']);
 
 gulp.task('autoBuild', ['buildSrc'], function() {
-    return gulp.src(SRC)
-        .pipe(watch(SRC).on('change', function(path){
+    return gulp.src(dirs.src)
+        .pipe(watch(dirs.src).on('change', function(path){
             gutil.log(`File ${path} has been changed`);
         }))
         .pipe(babel())
-        .pipe(gulp.dest(DIST));
+        .pipe(gulp.dest(dirs.dist));
 });
 
 gulp.task('default', ['buildSrc']);
 
 gulp.task('test', ['buildSrc'], function() {
-   return gulp.src('spec/*')
+   return gulp.src(dirs.test)
         .pipe(mocha());
 });
 
 gulp.task('lint', function() {
-    return gulp.src(SRC)
+    return gulp.src(dirs.src)
         .pipe(eslint()) 
         .pipe(eslint.format())
         .pipe(eslint.failAfterError());
 });
 
 gulp.task('autoBuild:lint', function() {
-    return gulp.src(SRC)
-        .pipe(watch(SRC).on('change', function(path){
+    return gulp.src(dirs.src)
+        .pipe(watch(dirs.src).on('change', function(path){
             gutil.log(`File ${path} has been changed`);
         }))
         .pipe(shell(['eslint --quiet src/<%= file.relative %>'], {ignoreErrors: true}))
         .pipe(babel())
-        .pipe(gulp.dest(DIST));
+        .pipe(gulp.dest(dirs.dist));
 });

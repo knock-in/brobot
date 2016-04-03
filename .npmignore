@@ -1,0 +1,11 @@
+docs
+src
+test
+example
+node_modules
+npm-debug.log
+dist/modules/exampleModule.js
+gulpfile.js
+conf.js
+Procfile
+.*

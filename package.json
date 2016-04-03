@@ -1,25 +1,26 @@
 {
   "name": "brobot",
-  "version": "0.0.1",
-  "description": "module-based telegram bot",
+  "version": "1.0.0",
+  "description": "Brobot is a modular, easy to extend bot, based on Microsofts BotConnectorBot",
   "main": "dist/app.js",
   "scripts": {
     "test": "gulp test",
     "start": "node dist/app.js",
-    "postinstall": "gulp"
+    "heroku-postbuild": "gulp"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/knock-in/brobot.git"
   },
   "keywords": [
-    "telegram",
+    "botconnector",
     "bot",
     "module",
-    "based"
+    "based",
+    "botframework"
   ],
   "author": "knock-in",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/knock-in/brobot/issues"
   },
@@ -39,11 +40,11 @@
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
     "ink-docstrap": "^1.1.4",
-    "jsdoc": "^3.4.0"
+    "jsdoc": "^3.4.0",
+    "restify": "^4.0.4"
   },
   "dependencies": {
     "botbuilder": "^0.6.2",
-    "morse": "^0.1.0",
-    "restify": "^4.0.4"
+    "morse": "^0.1.0"
   }
 }

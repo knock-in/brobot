@@ -1,4 +1,4 @@
-const Brobot = require('./brobot.js');
+const Brobot = require('../dist/brobot.js');
 const restify = require('restify');
 
 const appId = process.env.APP_ID || 'appID';
