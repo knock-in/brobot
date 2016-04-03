@@ -11,7 +11,7 @@
 	<![endif]-->
 	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
 
-	<link type="text/css" rel="stylesheet" href="styles/site.sandstone.css">
+	<link type="text/css" rel="stylesheet" href="styles/site.slate.css">
 
 </head>
 
@@ -84,25 +84,44 @@
 
 
     <section class="readme-section">
-        <article><h3><strong><a href="https://knock-in.github.io/brobot">Brobot</a></strong>    <a href="https://travis-ci.org/knock-in/brobot"><img src="https://travis-ci.org/knock-in/brobot.svg?branch=master" alt="Build Status"></a></h3><hr>
-<p>Brobot is a module-based telegram bot which uses <a href="https://github.com/yagop/node-telegram-bot-api">yagops telegram API</a> for interaction with telegram. For more information check out the <a href="https://knock-in.github.io/brobot">documentation</a>. (No rhyme intention)</p>
-<h4><strong>Getting started!</strong></h4><p>Type the following commands into your terminal:</p>
-<p><code>git clone https://github.com/knock-in/brobot.git</code></p>
-<p><code>cd brobot/</code></p>
-<p><code>npm install -g gulp-cli</code></p>
-<p><code>npm install</code></p>
-<p>Now open <code>src/app.js</code> and replace <code>process.env.HOST</code> and <code>process.env.IP</code> with the actual host and ip brobot should listen for incoming messages, then replace <code>process.env.API_TOKEN</code> with your bot's API Token which Botfather gave you. Altenatively you can also just set the right environment variables.</p>
-<p>To build finally:</p>
-<p><code>gulp</code></p>
-<p>Now you can start your bot with:</p>
-<p><code>npm start</code></p>
-<h4><strong>How to write new modules</strong></h4><ol>
-<li>Switch to <code>/modules</code>directory.</li>
-<li>Create a new .js file in <code>/modules</code> directory for example myModule.js.</li>
-<li><a href="https://knock-in.github.io/brobot/docco/exampleModule.html">Check out how brobot handles it's modules.</a></li>
-<li>If your module looks like the example module and is in the /modules directory, you're done. Brobot detects every new module by itself if it is in the right directory.</li>
-<li><code>gulp</code> again to build your new module.</li>
-</ol></article>
+        <article><p>#<a href="https://knock-in.github.io/brobot">Brobot</a>    <a href="https://travis-ci.org/knock-in/brobot"><img src="https://travis-ci.org/knock-in/brobot.svg?branch=development" alt="Build Status"></a></p>
+<hr>
+<p>Brobot is a modular, easy to extend bot, based on Microsofts BotConnectorBot. For more details you can read the documentation here.</p>
+<h3>Getting started</h3><p>Install Brobot with this command:</p>
+<p><code>npm install brobot</code></p>
+<h3>Examples</h3><p>You can find some examples in the examples directory in this repo.</p>
+<p>Like this:</p>
+<pre class="prettyprint source lang-javascript"><code>var Brobot = require('brobot');
+var restify = require('restify');
+
+var appId = process.env.APP_ID || 'YourAppId';
+var appSecret = process.env.APP_SECRET || 'YourAppSecret';
+
+// Initialize brobot with appId and appSecret of BotConnector. Read more: http://docs.botframework.com/connector/getstarted/#navtitle
+var brobot = new Brobot({ appId: appId, appSecret: appSecret }, function(session, returnArgs) {
+  var response = '';
+
+  // Store count of arguments brobot returned for this message
+  var argCount = returnArgs.length;
+
+  // Iterate throught every argument
+  for (var i = 0; i &lt; argCount; i++) {
+    // Append every argument to 'str'
+    response += returnArgs[i];
+  }
+
+  // Reply to our chat with result of message
+  session.send(response);
+});
+
+// This is just the server which listens for new messages from botconnector
+const server = restify.createServer();
+server.post('/api/messages', brobot.verifyBotFramework(), brobot.listen());
+
+server.listen(process.env.PORT || 8080, () => {
+  console.log('%s listening to %s', server.name, server.url);
+});</code></pre><h3>Add new modules</h3><p>Brobot handles every .js file in /src/modules as a module. If you want to know how a module should look like, click <a href="http://knock-in.github.io/brobot/docco/exampleModule.html">here</a>.</p>
+<p>To add new modules to this repo you should fork, add a module and make a pull request. I'll review it as soon as possible.</p></article>
     </section>
 
 
