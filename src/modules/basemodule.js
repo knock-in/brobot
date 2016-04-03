@@ -23,23 +23,16 @@ class BaseModule {
   }
 
   execute(_args, callback) {
-    console.log(`Execute module ${this.constructor.name} with token ${this.token}`);
-
     const minArgs = this.constructor.getOptions().minArgs;
 
     // Option "minArgs" ensures that the module will only get called if the user
     // passed enough arguments for it, otherwise it will skip this module
     if (_args.length >= minArgs) {
       // Enough arguments so do the module-work
-      console.log('Enough arguments');
-      console.log(_args);
       this.work(_args || [], callback);
     } else {
       // Not enough arguments for this module so just pass them all to the next
       // module, which meets the requirements hopefully
-      console.log(`Not enough arguments, got: ${_args.length} but need ${minArgs}`);
-      console.log(_args);
-
       this._args.push(this.token);
 
       for (let i = 0; i < _args.length; i++) {

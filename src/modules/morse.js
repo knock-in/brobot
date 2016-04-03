@@ -21,7 +21,7 @@ class MorseModule extends BaseModule {
     } else if (_args[0].toLowerCase() === 'd') {
       // Decode
       for (let i = 1; i < _args.length; i++) {
-        retArgs.push(morse.decode(_args[i]));
+        retArgs.push(morse.decode(_args[i]).toLowerCase());
       }
     } else {
       // Neither encrypt or decrypt so return all arguments

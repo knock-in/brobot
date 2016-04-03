@@ -15,11 +15,14 @@ class Brobot extends builder.BotConnectorBot {
    */
   constructor(options, callback) {
     super(options);
+    this.debugLog = false;
 
     this.moduleMap = new ModuleMap();
 
     this.add('/', (session) => {
-      console.log(session.message.text);
+      if(this.debugLog) {
+        console.log(session.message.text);
+      }
 
       this.sessionHandler(session, (node) => {
         if (node === null) {
