@@ -1,14 +1,14 @@
-const Brobot = require('../dist/brobot.js');
-const restify = require('restify');
+var Brobot = require('../dist/brobot.js');
+var restify = require('restify');
 
-const appId = process.env.APP_ID || 'appID';
-const appSecret = process.env.APP_SECRET || 'appSecret';
+var appId = process.env.APP_ID || 'appID';
+var appSecret = process.env.APP_SECRET || 'appSecret';
 
-const brobot = new Brobot({ appId, appSecret }, (session, _args) => {
-  let str = '';
+var brobot = new Brobot({ appId: appId, appSecret: appSecret }, function(session, _args) => {
+  var str = '';
   const len = _args.length;
 
-  for (let i = 0; i < len; i++) {
+  for (var i = 0; i < len; i++) {
     str += _args[i].toString() + ((len - i > 1) ? ' ' : '');
   }
 
