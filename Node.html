@@ -33,7 +33,7 @@
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="Brobot.html">Brobot</a></li><li><a href="MessageParser.html">MessageParser</a></li><li><a href="Node.html">Node</a></li>
+					<li><a href="Brobot.html">Brobot</a></li><li><a href="Node.html">Node</a></li>
 				</ul>
 			</li>
 			
@@ -205,7 +205,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="Node.html#~mappingCallback">Node~mappingCallback</a></span>
+<span class="param-type"><a href="Node.html#~reviverCallback">Node~reviverCallback</a></span>
 
 
 
@@ -216,7 +216,7 @@
 
             
 
-            <td class="description last">Callback which can be used to map stored data.</td>
+            <td class="description last">Function to mutate {data} when a node is added.</td>
         </tr>
 
     
@@ -307,7 +307,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="addFirst"><span class="type-signature"></span>addFirst(data)</h4>
+    <h4 class="name" id="getFirst"><span class="type-signature"></span>getFirst(callback)</h4>
     
     
 </dt>
@@ -315,7 +315,140 @@
 
     
     <div class="description">
-        Add a new node previous to first node.
+        Return first node.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Node.html#~getFirstCallback">Node~getFirstCallback</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		node.js
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="addLast"><span class="type-signature"></span>addLast(data)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Add a new node next to the last node.
     </div>
     
 
@@ -440,7 +573,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="addLast"><span class="type-signature"></span>addLast(data)</h4>
+    <h4 class="name" id="addFirst"><span class="type-signature"></span>addFirst(data)</h4>
     
     
 </dt>
@@ -448,7 +581,7 @@
 
     
     <div class="description">
-        Add a new node next to the last node.
+        Add a new node previous to first node.
     </div>
     
 
@@ -706,139 +839,6 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="getFirst"><span class="type-signature"></span>getFirst(callback)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Return first node.
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Node.html#~getFirstCallback">Node~getFirstCallback</a></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		node.js
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
     <h4 class="name" id="getData"><span class="type-signature"></span>getData()</h4>
     
     
@@ -952,7 +952,7 @@
                 
 <hr>
 <dt>
-    <h4 class="name" id="~mappingCallback"><span class="type-signature"></span>mappingCallback(data, node)</h4>
+    <h4 class="name" id="~reviverCallback"><span class="type-signature"></span>reviverCallback(data, node)</h4>
     
     
 </dt>
@@ -1413,7 +1413,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
 	
-		on 28.03.2016
+		on 03.04.2016
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
