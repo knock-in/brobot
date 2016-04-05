@@ -1,6 +1,6 @@
 
 
-#[Brobot](https://knock-in.github.io/brobot)	[![Build Status](https://travis-ci.org/knock-in/brobot.svg?branch=development)](https://travis-ci.org/knock-in/brobot)
+# [Brobot](https://knock-in.github.io/brobot)	[![Build Status](https://travis-ci.org/knock-in/brobot.svg?branch=development)](https://travis-ci.org/knock-in/brobot)
 
 ----------
 
@@ -57,3 +57,30 @@ Brobot handles every .js file in /src/modules as a module. If you want to know h
 
 To add new modules to this repo you should fork, add a module and make a pull request. I'll review it as soon as possible.
 
+### How to use modules
+
+Let's say you've installed brobot and want to try some commands.
+Here is a list of the current commands, keep in mind you can extend them easily:
+
+| Command | Minimum arguments | Example             | Result                                   | Explaination                                       |
+|---------|-------------------|---------------------|------------------------------------------|----------------------------------------------------|
+| /       | 2                 | / 5 2               | 2.5                                      | Simple division                                    |
+| *       | 2                 | * 6 2               | 12                                       | Simple multiplication                              |
+| -       | 2                 | - 12 3              | 9                                        | Simple substraction                                |
+| +       | 2                 | + 3 8               | 11                                       | Simple addition                                    |
+| morse   | 2                 | morse e hello world | .... . .-.. .-.. ---.-- --- .-. .-.. -.. | You can also write morse d to encrypt a morse code |
+| pi      | 0                 | pi                  | 3.141592653589793                        |                                                    |
+| rev     | 0                 | rev hello world     | world hello                              | Returns input in reversed word order               |
+| rrev    | 0                 | rrev hello world    | olleh dlrow                              | Returns every word reversed                        |
+
+**Keep in mind**, you won't get any response until you write `echo` before your command. For example echo + 5 8 will return 13.
+
+**Command chaining**
+
+Lets say we have the following command: `echo + 1500 * 2 pi`
+This would return: `1506.2831853071796`
+
+Why? You have to read from left to write. First there is `pi` which returns 3.141592653589793 and passes it's value to `2`.
+Now passes itself (2) and it's argument (3.141592653589793) to module `*` which will multiply theese two values returning `6.283185307179586`.
+This value and the next (`1500`) will finally passed to module `+` which results in `1506.2831853071796`.
+`echo` will tell our bot to reply the result to the user.
