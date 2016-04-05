@@ -96,4 +96,4 @@ This would return: `1506.2831853071796`
 Why? You have to read from right to left. First there is `pi` which returns 3.141592653589793 and passes it's value to `2`.
 Now passes itself (2) and it's argument (3.141592653589793) to module `*` which will multiply theese two values returning `6.283185307179586`.
 This value and the next (`1500`) will finally passed to module `+` which results in `1506.2831853071796`.
-`echo` will tell our bot to reply the result to the user.
+`echo` will tell our bot to reply the result to the user. You can chain every other command too, just try it.
