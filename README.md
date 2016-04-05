@@ -4,7 +4,7 @@
 
 ----------
 
-Brobot is a modular, easy to extend bot, based on Microsofts BotConnectorBot. For more details you can read the documentation here.
+Brobot is a modular, easy to extend bot, based on Microsofts BotConnectorBot. For more details you can read the documentation [here](http://knock-in.github.io/brobot).
 
 ### Getting started
 
