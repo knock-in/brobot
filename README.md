@@ -16,7 +16,7 @@ Brobot is a modular, easy to extend bot, based on Microsofts BotConnectorBot. Fo
 
 [@brobot on GroupMe](https://groupme.botframework.com/?botId=brobot)
 
-**See Brobot commands below or [here](http://knock-in.github.io/brobot/#toc3__anchor).**
+**See Brobot commands below or [here](http://knock-in.github.io/brobot/#toc5__anchor).**
 
 
 ### Getting started
@@ -81,7 +81,7 @@ Here is a list of the current commands, keep in mind you can extend them easily:
 | *       | 2                 | * 6 2               | 12                                       | Simple multiplication                              |
 | -       | 2                 | - 12 3              | 9                                        | Simple substraction                                |
 | +       | 2                 | + 3 8               | 11                                       | Simple addition                                    |
-| morse   | 2                 | morse e hello world | .... . .-.. .-.. ---.-- --- .-. .-.. -.. | You can also write morse d to encrypt a morse code |
+| morse   | 2                 | morse e hello world | .... . .-.. .-.. ---.-- --- .-. .-.. -.. | You can also write morse d to decrypt a morse code |
 | pi      | 0                 | pi                  | 3.141592653589793                        |                                                    |
 | rev     | 0                 | rev hello world     | world hello                              | Returns input in reversed word order               |
 | rrev    | 0                 | rrev hello world    | olleh dlrow                              | Returns every word reversed                        |
