@@ -16,7 +16,7 @@ Brobot is a modular, easy to extend bot, based on Microsofts BotConnectorBot. Fo
 
 [@brobot on GroupMe](https://groupme.botframework.com/?botId=brobot)
 
-**See Brobot Commands below or [here](http://knock-in.github.io/brobot/#toc3__anchor).**
+**See Brobot commands below or [here](http://knock-in.github.io/brobot/#toc3__anchor).**
 
 
 ### Getting started
@@ -70,7 +70,7 @@ Brobot handles every .js file in /src/modules as a module. If you want to know h
 
 To add new modules to this repo you should fork, add a module and make a pull request. I'll review it as soon as possible.
 
-### Brobot Commands
+### Brobot commands/modules
 
 Let's say you've installed brobot and want to try some commands.
 Here is a list of the current commands, keep in mind you can extend them easily:
@@ -88,7 +88,7 @@ Here is a list of the current commands, keep in mind you can extend them easily:
 
 **Keep in mind**, you won't get any response until you write `echo` before your command. For example echo + 5 8 will return 13.
 
-### Command chaining
+### Command/Module chaining
 
 Lets say we have the following command: `echo + 1500 * 2 pi`
 This would return: `1506.2831853071796`
