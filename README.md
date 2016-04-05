@@ -1,10 +1,23 @@
 
 
-# [Brobot](https://knock-in.github.io/brobot)	[![Build Status](https://travis-ci.org/knock-in/brobot.svg?branch=development)](https://travis-ci.org/knock-in/brobot)
 
-----------
+# [Brobot](https://knock-in.github.io/brobot)
+[![Build Status](https://travis-ci.org/knock-in/brobot.svg?branch=development)](https://travis-ci.org/knock-in/brobot)
+
+---
 
 Brobot is a modular, easy to extend bot, based on Microsofts BotConnectorBot. For more details you can read the documentation [here](http://knock-in.github.io/brobot).
+
+### Live preview
+[@brobot on Slack](https://slack.com/oauth/authorize?scope=incoming-webhook,bot&client_id=31074109043.31129660737&redirect_uri=https%3a%2f%2fslack.botframework.com%2fHome%2fauth&state=brobot)
+
+[@tele_brobot on Telegram](https://telegram.me/tele_brobot)
+
+
+[@brobot on GroupMe](https://groupme.botframework.com/?botId=brobot)
+
+**See Brobot Commands below or [here](http://knock-in.github.io/brobot/#toc3__anchor).**
+
 
 ### Getting started
 
@@ -57,7 +70,7 @@ Brobot handles every .js file in /src/modules as a module. If you want to know h
 
 To add new modules to this repo you should fork, add a module and make a pull request. I'll review it as soon as possible.
 
-### How to use modules
+### Brobot Commands
 
 Let's say you've installed brobot and want to try some commands.
 Here is a list of the current commands, keep in mind you can extend them easily:
@@ -75,12 +88,12 @@ Here is a list of the current commands, keep in mind you can extend them easily:
 
 **Keep in mind**, you won't get any response until you write `echo` before your command. For example echo + 5 8 will return 13.
 
-**Command chaining**
+### Command chaining
 
 Lets say we have the following command: `echo + 1500 * 2 pi`
 This would return: `1506.2831853071796`
 
-Why? You have to read from left to write. First there is `pi` which returns 3.141592653589793 and passes it's value to `2`.
+Why? You have to read from right to left. First there is `pi` which returns 3.141592653589793 and passes it's value to `2`.
 Now passes itself (2) and it's argument (3.141592653589793) to module `*` which will multiply theese two values returning `6.283185307179586`.
 This value and the next (`1500`) will finally passed to module `+` which results in `1506.2831853071796`.
 `echo` will tell our bot to reply the result to the user.
