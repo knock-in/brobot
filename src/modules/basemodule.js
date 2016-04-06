@@ -14,12 +14,17 @@ class BaseModule {
     };
   }
 
-  isNumber(value) {
-    return !isNaN(Number(value));
+  isNumber(...values) {
+    for(var i = 0;i < values.length;i++) {
+      if(isNaN(Number(values[i]))) {
+        return false;
+      }
+    }
+    return true;
   }
 
-  isString(value) {
-    return !this.isNumber(value);
+  isString(...values) {
+    return !this.isNumber(...values);
   }
 
   execute(_args, callback) {

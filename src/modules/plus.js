@@ -13,7 +13,7 @@ class PlusModule extends BaseModule {
     const retArgs = [];
     let i = 0;
 
-    if (this.isNumber(_args[0]) && this.isNumber(_args[1])) {
+    if (this.isNumber(..._args.slice(0, this.constructor.getOptions().minArgs))) {
       retArgs.push(Number(_args[0]) + Number(_args[1]));
       i = 2;
     }

@@ -23,6 +23,8 @@ describe("Module Tests", function() {
   moduleTests.push({ module: 'pi', msg: 'pi', expected: [3.141592653589793] });
   moduleTests.push({ module: 'rev', msg: 'rev hello world', expected: ['world', 'hello'] });
   moduleTests.push({ module: 'rrev', msg: 'rrev hello world', expected: ['olleh', 'dlrow'] });
+  moduleTests.push({ module: 'tobase', msg: 'tobase 16 1234', expected: ['4D2'] });
+  moduleTests.push({ module: 'tobase', msg: 'tobase 10 0x4D2', expected: ['1234'] });
 
   moduleTests.forEach(function(moduleTest) {
     it('Testing Module \'' + moduleTest.module + '\' with message \'' + moduleTest.msg + '\'', function() {
