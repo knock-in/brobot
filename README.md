@@ -13,8 +13,9 @@ Brobot is a modular, easy to extend bot, based on Microsofts BotConnectorBot. Fo
 
 [@tele_brobot on Telegram](https://telegram.me/tele_brobot)
 
-
 [@brobot on GroupMe](https://groupme.botframework.com/?botId=brobot)
+
+[@brobot on WebChat](https://webchat.botframework.com/embed/brobot?s=obSPJv6ZvGY.cwA.7-M.MoqOAFyt2tL0yvHx3F8hjJAR7AaIasHdwc1lfpD2fsA)
 
 **See Brobot commands below or [here](http://knock-in.github.io/brobot/#toc5__anchor).**
 
