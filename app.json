@@ -7,11 +7,11 @@
   "env": {
     "APP_ID": {
       "description": "App Id of your bot.",
-      "value": "default"
+      "value": "Your App Id"
     },
     "APP_TOKEN": {
       "description": "App Token of your bot.",
-      "value": "default"
+      "value": "Your App Token"
     },
     "NPM_CONFIG_PRODUCTION": {
       "description": "Set to false to install dev dependencies",
