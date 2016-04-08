@@ -1,0 +1,9 @@
+// See: https://devcenter.heroku.com/articles/heroku-button
+
+{
+  "name": "Brobot test",
+  "description": "Desc..",
+  "repository": "https://github.com/knock-in/brobot.git",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": ["node", "express", "static"]
+}
