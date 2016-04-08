@@ -1,6 +1,6 @@
 {
   "name": "Brobot",
-  "description": "Deploy your own brobot instance to heroku. Attention: Do not forget to set environment variables APP_ID and APP_SECRET according to your bot.",
+  "description": "Deploy your brobot instance to Heroku. Attention: Do not forget to set environment variables APP_ID and APP_SECRET according to your bot.",
   "repository": "https://github.com/knock-in/brobot.git",
   "logo": "https://node-js-sample.herokuapp.com/node.png",
   "keywords": ["brobot", "modular", "botframework", "microsoft", "nodejs"]
