@@ -3,5 +3,19 @@
   "description": "Deploy your brobot instance to Heroku. Attention: Do not forget to set environment variables APP_ID and APP_SECRET according to your bot.",
   "repository": "https://github.com/knock-in/brobot.git",
   "logo": "https://node-js-sample.herokuapp.com/node.png",
-  "keywords": ["brobot", "modular", "botframework", "microsoft", "nodejs"]
+  "keywords": ["brobot", "modular", "botframework", "microsoft", "nodejs"],
+  "env": {
+    "APP_ID": {
+      "description": "App Id of your bot.",
+      "value": "default"
+    },
+    "APP_TOKEN": {
+      "description": "App Token of your bot.",
+      "value": "default"
+    },
+    "NPM_CONFIG_PRODUCTION": {
+      "description": "Set to false to install dev dependencies",
+      "value": "false"
+    }
+  }
 }

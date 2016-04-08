@@ -2,8 +2,7 @@
 
 
 # [Brobot](https://knock-in.github.io/brobot)
-[![Build Status](https://travis-ci.org/knock-in/brobot.svg?branch=development)](https://travis-ci.org/knock-in/brobot)
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/knock-in/brobot/tree/master?env[NPM_CONFIG_PRODUCTION]=false)
+[![Build Status](https://travis-ci.org/knock-in/brobot.svg?branch=development)](https://travis-ci.org/knock-in/brobot) [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/knock-in/brobot/tree/master)
 ---
 
 Brobot is a modular, easy to extend bot, based on Microsofts BotConnectorBot. For more details you can read the documentation [here](http://knock-in.github.io/brobot).
