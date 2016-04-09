@@ -14,7 +14,7 @@
       "value": "Your App Token"
     },
     "NPM_CONFIG_PRODUCTION": {
-      "description": "Set to false to install dev dependencies",
+      "description": "Set to false to install dev dependencies.(Do not change default value if you don't know what you're doing.",
       "value": "false"
     }
   }
