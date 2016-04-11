@@ -27,7 +27,7 @@ Install Brobot with this command:
 
 ### Examples
 
-You can find some examples in the examples directory in this repo.
+Check out the `/example` directory for more.
 
 Like this:
 

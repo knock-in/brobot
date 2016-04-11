@@ -2,10 +2,10 @@
   "name": "brobot",
   "version": "1.0.4",
   "description": "Brobot is a modular, easy to extend bot, based on Microsofts BotConnectorBot",
-  "main": "dist/app.js",
+  "main": "dist/brobot.js",
   "scripts": {
     "test": "gulp test",
-    "start": "node dist/app.js",
+    "start": "node example/replyArgumentExample.js",
     "heroku-postbuild": "gulp"
   },
   "repository": {
