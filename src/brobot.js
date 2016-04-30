@@ -4,14 +4,13 @@ const Node = require('./node.js');
 
 /**
 * Brobot class
-* @extends telegramBotApi
+* @extends BotConnectorBot
 */
 class Brobot extends builder.BotConnectorBot {
   /**
    * Creates a new instance of class Brobot.
-   * @param {string} token - AppToken for your telegram bot.
-   * @param {string} options - Host which the telegram api listens for new messages.
-   * @param {Brobot~messageCallback} callback - The callback that for each message.
+   * @param {Object} options - Options for botconnector.
+   * @param {Brobot~messageCallback} callback - Callback for each message.
    */
   constructor(options, callback) {
     super(options);
