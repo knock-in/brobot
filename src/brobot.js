@@ -81,9 +81,7 @@ class Brobot extends builder.BotConnectorBot {
 /**
  * Message Callback.
  * @callback Brobot~messageCallback
- * @param {} msg - The untouched message we recieved from telegram.
- * @param {string} msg.text - The text of the message.
- * @param {string} msg.chat.id - Chat id which can be used for replys and so on.
+ * @param {Session} session - BotConnector session for recieved message
  * @param {string[]} _args - Array of tokens returned from all modules of this message
  */
 

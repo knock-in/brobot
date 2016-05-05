@@ -1,6 +1,6 @@
 {
   "name": "brobot",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Brobot is a modular, easy to extend bot, based on Microsofts BotConnectorBot",
   "main": "dist/brobot.js",
   "scripts": {
