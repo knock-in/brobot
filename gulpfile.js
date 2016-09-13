@@ -7,6 +7,7 @@ var del = require("del");
 var shell = require("gulp-shell");
 var eslint = require("gulp-eslint");
 
+
 const dirs = {
     src: 'src/**/*.js',
     dist: 'dist/',
