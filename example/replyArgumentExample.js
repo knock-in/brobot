@@ -23,7 +23,7 @@ var brobot = new Brobot({ appId: appId, appSecret: appSecret }, function(session
 
 // This is just the server which listens for new messages from botconnector
 const server = restify.createServer();
-server.post('/api/messages', brobot.verifyBotFramework(), brobot.listen());
+server.post('/api/messages', brobot.listen());
 
 server.listen(process.env.PORT || 8080, () => {
   console.log('%s listening to %s', server.name, server.url);
